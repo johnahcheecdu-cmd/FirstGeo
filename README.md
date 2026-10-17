@@ -87,7 +87,7 @@ filenames, so no HTML changes needed):
 | `purpose-landscape.jpg` | "Our Purpose" section background |
 | `work-environmental.jpg`, `work-infrastructure.jpg`, `work-land.jpg` | Featured work cards |
 | `cta-contours.jpg` | Call-to-action band background texture |
-| `logo-mark.webp`, `logo-wordmark.webp` | Header/footer logo |
+| `logo-transparent.png`, `typography-transparent.png` | Header/footer logo |
 | `og-image.jpg` | Social share preview image |
 
 ## Contact page & form
