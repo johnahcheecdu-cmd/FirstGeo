@@ -235,7 +235,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* ---------- 5. HERO ------------------------------------------------------ */
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
-  min-height: clamp(640px, 61.15vw, 940px);   /* 870:532 ratio of the mockup */
+  min-height: clamp(780px, 73vw, 1080px);   /* tall enough to clear hero__copy above hero__country at every desktop width */
   background: var(--charcoal); color: var(--white);
 }
 .hero__bg {
