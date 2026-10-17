@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FIRST GEOSPATIAL — main.js
+   FIRST GEOSPATIAL: main.js
    Small, dependency-free behaviours. Everything degrades gracefully with JS off.
    ========================================================================== */
 (() => {

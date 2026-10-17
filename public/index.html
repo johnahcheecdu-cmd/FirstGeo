@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>First Geospatial | Aerial Imagery, LiDAR &amp; Geospatial Data</title>
-  <meta name="description" content="First Geospatial delivers aerial imagery, LiDAR and geospatial data acquisition, mapping and spatial solutions across the Northern Territory and Australia.">
+  <title>Drone Services Darwin &amp; NT | LiDAR Mapping | First Geospatial</title>
+  <meta name="description" content="Indigenous-owned drone and geospatial services based in Darwin and Katherine. Drone LiDAR mapping, aerial imagery, photogrammetry and asset inspections across the Northern Territory.">
   <meta name="theme-color" content="#10151B">
+  <link rel="canonical" href="https://firstgeospatial.com.au/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="First Geospatial | Mapping a brighter tomorrow">
-  <meta property="og:description" content="Aerial imagery, LiDAR and geospatial data acquisition, mapping and spatial solutions across the Northern Territory and Australia.">
+  <meta property="og:title" content="Drone Services Darwin &amp; NT | LiDAR Mapping | First Geospatial">
+  <meta property="og:description" content="Indigenous-owned drone and geospatial services based in Darwin and Katherine. Drone LiDAR mapping, aerial imagery, photogrammetry and asset inspections across the Northern Territory.">
   <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:url" content="https://firstgeospatial.com.au/">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Organisation / local-business structured data. Only facts already published
+       elsewhere on this site (name, phone, service area, enquiry form). No address,
+       reviews or credentials are declared here; add them only once genuinely verified. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "First Geospatial",
+    "url": "https://firstgeospatial.com.au/",
+    "telephone": "+61404353747",
+    "image": "https://firstgeospatial.com.au/assets/img/og-image.jpg",
+    "description": "Indigenous-owned drone and geospatial services business based in Darwin and Katherine, delivering drone LiDAR mapping, aerial imagery, photogrammetry, environmental mapping and infrastructure inspection services across the Northern Territory.",
+    "areaServed": [
+      { "@type": "City", "name": "Darwin" },
+      { "@type": "City", "name": "Katherine" },
+      { "@type": "AdministrativeArea", "name": "Northern Territory" }
+    ]
+  }
+  </script>
 
   <link rel="preload" href="assets/fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,21 +45,6 @@
 </head>
 
 <body id="top">
-
-  <!-- ============ PASSWORD GATE OVERLAY ============ -->
-  <div id="fg-gate" style="position:fixed;inset:0;width:100vw;height:100vh;background-color:#10151B;display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;padding:1rem;box-sizing:border-box;">
-    <div style="background:#1A232E;border:1px solid #2B3847;padding:2.5rem 2rem;border-radius:12px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.6);box-sizing:border-box;">
-      <h2 style="color:#FAF8F5;margin:0 0 0.5rem;font-size:1.4rem;">First Geospatial</h2>
-      <p style="color:#A0AEC0;font-size:0.875rem;margin:0 0 1.5rem;line-height:1.4;">Site under development. Please enter the password to view.</p>
-      <form id="fg-gate-form">
-        <input type="password" id="fg-gate-pass" placeholder="Enter password" required style="width:100%;padding:0.75rem;border-radius:6px;border:1px solid #2B3847;background:#10151B;color:#FAF8F5;font-size:1rem;margin-bottom:0.75rem;box-sizing:border-box;outline:none;" />
-        <p id="fg-gate-err" style="color:#E53E3E;font-size:0.85rem;margin:0 0 0.75rem;display:none;">Incorrect password</p>
-        <button type="submit" style="width:100%;padding:0.75rem;border-radius:6px;border:none;background:#A24823;color:#FFF;font-weight:600;font-size:1rem;cursor:pointer;">Unlock</button>
-      </form>
-    </div>
-  </div>
-  <!-- ============================================== -->
-
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ ICON SPRITE (inline so it works from file:// and any host) ============ -->
@@ -49,14 +56,15 @@
     <symbol id="i-layers" viewBox="0 0 48 48"><path d="M24 5.5 41.5 14 24 22.5 6.5 14z"/><path d="M6.5 21.5 24 30l17.5-8.5"/><path d="M6.5 29 24 37.5 41.5 29"/></symbol>
     <symbol id="i-leaf" viewBox="0 0 48 48"><path d="M11 39C7.5 24 17 10.5 41 7.5c1.2 20-8.5 33.5-30 31.5z"/><path d="M7 44.5C13 34 21 24 34 15.5"/></symbol>
     <symbol id="i-tower" viewBox="0 0 48 48"><path d="M20 4.5h8V9h-8zM20.5 9 14.5 41M27.5 9l6 32M9.5 41.5h29"/><path d="M18.4 18h11.2M16.5 28h15M15.2 35.5h17.6M18.4 18l13.1 10M29.6 18 16.5 28M16.5 28l16.3 7.5M31.5 28 15.2 35.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></symbol>
   </svg>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header">
     <div class="stage site-header__inner">
       <a class="brand" href="#top" aria-label="First Geospatial, home">
-        <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="499" height="420">
-        <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1162" height="149">
+        <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="520" height="379">
+        <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1200" height="196">
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
@@ -85,10 +93,10 @@
 
       <div class="stage hero__stage">
         <div class="hero__copy">
-          <p class="tagline hero__eyebrow">Aerial Data Acquisition &amp;<br>Geospatial Solutions</p>
+          <p class="tagline hero__eyebrow">Drone, LiDAR &amp;<br>Aerial Mapping Services</p>
           <h1 class="h1" id="hero-title">Mapping a <span class="accent">Brighter</span> Tomorrow</h1>
           <span class="rule" aria-hidden="true"></span>
-          <p class="hero__lead">Aerial imagery, LiDAR and geospatial services<br class="br-lg"> across the Northern Territory and Australia.</p>
+          <p class="hero__lead">First Geospatial is an Indigenous-owned drone and geospatial business based in Darwin and Katherine, delivering drone LiDAR mapping, aerial imagery and asset inspections across the Northern Territory.</p>
           <div class="hero__actions">
             <a class="btn btn--copper" href="#services">Our services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
@@ -104,7 +112,7 @@
 
         <div class="hero__country">
           <p class="tagline eyebrow eyebrow--light">Our Country</p>
-          <p>Based in the Northern Territory, delivering aerial imagery, LiDAR and geospatial data services across Australia.</p>
+          <p>Based in Darwin and Katherine, delivering drone, LiDAR and geospatial data services across the Northern Territory, with national project capability.</p>
         </div>
 
         <a class="hero__scroll" href="#services" aria-label="Scroll to services">
@@ -119,31 +127,31 @@
       <div class="stage services__grid">
         <div class="services__intro">
           <p class="tagline eyebrow">Our Services</p>
-          <h2 class="h2" id="services-title">Aerial imagery, LiDAR &amp; geospatial data</h2>
-          <p class="body">We provide aerial imagery, LiDAR and spatial data acquisition, along with mapping, modelling and analysis for government, industry, research and communities throughout the Northern Territory and across Australia.</p>
-          <a class="btn btn--outline" href="contact.html">Explore our services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <h2 class="h2" id="services-title">Drone, LiDAR &amp; geospatial data</h2>
+          <p class="body">We provide drone-based aerial imagery, LiDAR and spatial data acquisition, along with mapping, modelling and analysis for government, industry, research and communities throughout the Northern Territory and across Australia.</p>
+          <a class="btn btn--outline" href="contact.html">Request a project quote <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
 
-        <article class="service">
+        <a class="service" href="service-lidar-mapping.html">
           <span class="service__ring"><svg class="icon" aria-hidden="true"><use href="#i-drone"/></svg></span>
-          <h3 class="h3">LiDAR &amp;<br>Aerial Mapping</h3>
-          <p>Aerial LiDAR and imagery for terrain, vegetation, infrastructure and site mapping.</p>
-        </article>
-        <article class="service">
+          <h3 class="h3">Drone LiDAR &amp;<br>Aerial Mapping</h3>
+          <p>Drone LiDAR and aerial imagery for terrain, vegetation, infrastructure and site mapping.</p>
+        </a>
+        <a class="service" href="service-drone-mapping.html">
           <span class="service__ring"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
-          <h3 class="h3">Spatial Analysis<br>&amp; Visualisation</h3>
-          <p>Turning aerial and LiDAR data into meaningful spatial insights.</p>
-        </article>
-        <article class="service">
+          <h3 class="h3">Drone Mapping &amp;<br>Photogrammetry</h3>
+          <p>Orthomosaics, point clouds and terrain models from aerial and LiDAR data.</p>
+        </a>
+        <a class="service" href="service-environmental-mapping.html">
           <span class="service__ring"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></span>
           <h3 class="h3">Environment<br>&amp; Land Management</h3>
           <p>Supporting Country and land management with Traditional Owners and Ranger groups.</p>
-        </article>
-        <article class="service">
+        </a>
+        <a class="service" href="service-asset-inspections.html">
           <span class="service__ring"><svg class="icon" aria-hidden="true"><use href="#i-tower"/></svg></span>
-          <h3 class="h3">Infrastructure &amp;<br>Asset Inspection</h3>
-          <p>Aerial data for infrastructure and remote sites, including surveying and civil engineering where required.</p>
-        </article>
+          <h3 class="h3">Drone Infrastructure &amp;<br>Asset Inspection</h3>
+          <p>Aerial inspection data for infrastructure and remote sites across the NT.</p>
+        </a>
       </div>
     </section>
 
@@ -154,7 +162,7 @@
         <div class="purpose__copy">
           <p class="tagline eyebrow eyebrow--light">About Us</p>
           <h2 class="h2" id="purpose-title">An Indigenous-owned geospatial business</h2>
-          <p class="body body--light">We bring together aerial imaging technology, geospatial expertise and practical delivery - building a trusted business that creates lasting opportunities for Indigenous participation and industry growth.</p>
+          <p class="body body--light">We bring together aerial imaging technology, geospatial expertise and practical delivery, building a trusted business that creates lasting opportunities for Indigenous participation and industry growth.</p>
         </div>
       </div>
     </section>
@@ -165,7 +173,8 @@
         <div class="community__head">
           <p class="tagline eyebrow">Community &amp; Country</p>
           <h2 class="h2" id="community-title">Working with Indigenous communities</h2>
-          <p class="body community__lede">We want to work alongside Aboriginal communities, Traditional Owners, Land Councils and Ranger groups to support the mapping, monitoring and documentation of Country - making geospatial technology more accessible while creating opportunities for Indigenous participation and technical development.</p>
+          <p class="body community__lede">We want to work alongside Aboriginal communities, Traditional Owners, Land Councils and Ranger groups to support the mapping, monitoring and documentation of Country, making drone and geospatial technology more accessible while creating opportunities for Indigenous participation and technical development.</p>
+          <a class="btn btn--outline" href="service-on-country.html">Remote &amp; on-Country drone services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
 
         <div class="community__product">
@@ -201,10 +210,22 @@
     <div class="stage site-footer__grid">
       <div class="site-footer__brand">
         <a class="brand" href="#top" aria-label="First Geospatial, back to top">
-          <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="499" height="420" loading="lazy">
-          <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1162" height="149" loading="lazy">
+          <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="520" height="379" loading="lazy">
+          <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1200" height="196" loading="lazy">
         </a>
         <p>Mapping a brighter tomorrow.</p>
+        <!-- TODO: Once you have it, replace this text badge with the official Supply
+             Nation Registered Supplier logo, downloaded from your Supply Nation
+             supplier portal (account → logo/brand assets). Do not substitute any
+             other copy of the mark. Supply Nation's terms prohibit cropping,
+             editing or altering the logo, and it isn't transferable to a third
+             party to source on your behalf. Once downloaded, swap the <p> below for:
+             <img class="credential__logo" src="assets/img/supply-nation-registered-supplier.png"
+                  alt="Supply Nation Registered Supplier" width="160" height="80" loading="lazy"> -->
+        <p class="credential">
+          <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          <span class="credential__label">Supply Nation<br>Registered Supplier</span>
+        </p>
       </div>
 
       <nav aria-labelledby="fl-quick">
@@ -221,10 +242,11 @@
       <nav aria-labelledby="fl-services">
         <h2 class="footer-h tagline" id="fl-services">Our Services</h2>
         <ul>
-          <li><a href="#services">LiDAR &amp; Aerial Mapping</a></li>
-          <li><a href="#services">Spatial Analysis &amp; Visualisation</a></li>
-          <li><a href="#services">Environment &amp; Land Management</a></li>
-          <li><a href="#services">Infrastructure &amp; Asset Inspection</a></li>
+          <li><a href="service-lidar-mapping.html">Drone LiDAR Mapping</a></li>
+          <li><a href="service-drone-mapping.html">Drone Mapping &amp; Photogrammetry</a></li>
+          <li><a href="service-environmental-mapping.html">Environment &amp; Land Management</a></li>
+          <li><a href="service-asset-inspections.html">Infrastructure &amp; Asset Inspection</a></li>
+          <li><a href="service-on-country.html">Remote &amp; On-Country Services</a></li>
           <li><a href="contact.html">Consulting &amp; Project Support</a></li>
         </ul>
       </nav>
@@ -237,35 +259,9 @@
 
     <div class="stage site-footer__legal tagline">
       <span>First Geospatial Pty Ltd</span>
+      <a href="sitemap.html">Sitemap</a>
       <span class="pipes"><span>People</span><i></i><span>Place</span><i></i><span>Possibilities</span></span>
     </div>
   </footer>
-
-  <!-- ============ PASSWORD GATE SCRIPT ============ -->
-  <script>
-    (function () {
-      const SITE_PASSWORD = "SkyHigh2026"; // <-- CHANGE YOUR PASSWORD HERE
-      const gate = document.getElementById("fg-gate");
-      const form = document.getElementById("fg-gate-form");
-      const pass = document.getElementById("fg-gate-pass");
-      const err = document.getElementById("fg-gate-err");
-
-      if (sessionStorage.getItem("fg_unlocked") === "true") {
-        gate.style.display = "none";
-      }
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (pass.value === SITE_PASSWORD) {
-          sessionStorage.setItem("fg_unlocked", "true");
-          gate.style.display = "none";
-        } else {
-          err.style.display = "block";
-          pass.value = "";
-          pass.focus();
-        }
-      });
-    })();
-  </script>
 </body>
 </html>

@@ -6,11 +6,13 @@
   <title>Contact | First Geospatial</title>
   <meta name="description" content="Get in touch with First Geospatial. Send us a message and our team will get back to you.">
   <meta name="theme-color" content="#10151B">
+  <link rel="canonical" href="https://firstgeospatial.com.au/contact.html">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | First Geospatial">
   <meta property="og:description" content="Get in touch with First Geospatial. Send us a message and our team will get back to you.">
   <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:url" content="https://firstgeospatial.com.au/contact.html">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" type="image/png" href="favicon.png">
@@ -36,8 +38,8 @@
   <header class="site-header">
     <div class="stage site-header__inner">
       <a class="brand" href="index.html" aria-label="First Geospatial, home">
-        <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="499" height="420">
-        <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1162" height="149">
+        <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="520" height="379">
+        <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1200" height="196">
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
@@ -89,17 +91,17 @@
         <form class="contact__form" action="https://formsubmit.co/contact@firstgeospatial.com.au" method="POST" novalidate>
           <!-- FormSubmit relays this form straight to contact@firstgeospatial.com.au with no
                server of our own required. The FIRST submission triggers a one-time confirmation
-               email to that address - it must be clicked before submissions start arriving.
+               email to that address, and it must be clicked before submissions start arriving.
                See README.md "Contact form" for details, or swap this action for another provider. -->
-          <input type="hidden" name="_subject" value="New enquiry - firstgeospatial.com.au">
+          <input type="hidden" name="_subject" value="New enquiry via firstgeospatial.com.au">
           <input type="hidden" name="_template" value="table">
-          <i<input type="hidden" name="_next" value="https://www.firstgeospatial.com.au/contact.html#sent">
+          <input type="hidden" name="_next" value="https://first-geo.vercel.app/contact.html#sent">
           <!-- Honeypot: real visitors never fill this in; bots usually do. -->
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
           <div id="form-success" class="form-success" hidden role="status">
             <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
-            <p>Thanks &mdash; your message has been sent. We&rsquo;ll be in touch soon.</p>
+            <p>Thanks, your message has been sent. We&rsquo;ll be in touch soon.</p>
           </div>
 
           <div class="form-row">
@@ -121,10 +123,11 @@
             <label for="enquiry_type">I&rsquo;m enquiring about
               <select id="enquiry_type" name="enquiry_type">
                 <option>General enquiry</option>
-                <option>LiDAR &amp; aerial mapping</option>
-                <option>Spatial analysis &amp; visualisation</option>
+                <option>Drone LiDAR mapping</option>
+                <option>Drone mapping &amp; photogrammetry</option>
                 <option>Environment &amp; land management</option>
                 <option>Infrastructure &amp; asset inspection</option>
+                <option>Remote &amp; on-Country services</option>
                 <option>Community &amp; data sovereignty</option>
                 <option>Media</option>
               </select>
@@ -149,10 +152,22 @@
     <div class="stage site-footer__grid">
       <div class="site-footer__brand">
         <a class="brand" href="index.html" aria-label="First Geospatial, home">
-          <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="499" height="420" loading="lazy">
-          <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1162" height="149" loading="lazy">
+          <img class="brand__mark" src="assets/img/logo-mark.webp" alt="" width="520" height="379" loading="lazy">
+          <img class="brand__word" src="assets/img/logo-wordmark.webp" alt="First Geospatial. People, Place, Possibilities." width="1200" height="196" loading="lazy">
         </a>
         <p>Mapping a brighter tomorrow.</p>
+        <!-- TODO: Once you have it, replace this text badge with the official Supply
+             Nation Registered Supplier logo, downloaded from your Supply Nation
+             supplier portal (account → logo/brand assets). Do not substitute any
+             other copy of the mark. Supply Nation's terms prohibit cropping,
+             editing or altering the logo, and it isn't transferable to a third
+             party to source on your behalf. Once downloaded, swap the <p> below for:
+             <img class="credential__logo" src="assets/img/supply-nation-registered-supplier.png"
+                  alt="Supply Nation Registered Supplier" width="160" height="80" loading="lazy"> -->
+        <p class="credential">
+          <svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>
+          <span class="credential__label">Supply Nation<br>Registered Supplier</span>
+        </p>
       </div>
 
       <nav aria-labelledby="fl-quick">
@@ -169,10 +184,11 @@
       <nav aria-labelledby="fl-services">
         <h2 class="footer-h tagline" id="fl-services">Our Services</h2>
         <ul>
-          <li><a href="index.html#services">LiDAR &amp; Aerial Mapping</a></li>
-          <li><a href="index.html#services">Spatial Analysis &amp; Visualisation</a></li>
-          <li><a href="index.html#services">Environment &amp; Land Management</a></li>
-          <li><a href="index.html#services">Infrastructure &amp; Asset Inspection</a></li>
+          <li><a href="service-lidar-mapping.html">Drone LiDAR Mapping</a></li>
+          <li><a href="service-drone-mapping.html">Drone Mapping &amp; Photogrammetry</a></li>
+          <li><a href="service-environmental-mapping.html">Environment &amp; Land Management</a></li>
+          <li><a href="service-asset-inspections.html">Infrastructure &amp; Asset Inspection</a></li>
+          <li><a href="service-on-country.html">Remote &amp; On-Country Services</a></li>
           <li><a href="contact.html">Consulting &amp; Project Support</a></li>
         </ul>
       </nav>
@@ -185,12 +201,13 @@
 
     <div class="stage site-footer__legal tagline">
       <span>First Geospatial Pty Ltd</span>
+      <a href="sitemap.html">Sitemap</a>
       <span class="pipes"><span>People</span><i></i><span>Place</span><i></i><span>Possibilities</span></span>
     </div>
   </footer>
 
   <script>
-    // FormSubmit redirects back here with #sent on success - show the confirmation banner.
+    // FormSubmit redirects back here with #sent on success. Show the confirmation banner.
     if (location.hash === "#sent") {
       var s = document.getElementById("form-success");
       if (s) {

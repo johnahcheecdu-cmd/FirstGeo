@@ -1,8 +1,8 @@
-# First Geospatial — website
+# First Geospatial: website
 
 A static, no-build-step website matching the supplied brand mockup
 (`Website_FirstGeo.png`) and logo (`Logo_FirstGeo.jpg`). Plain HTML, CSS and
-JavaScript — no framework, no bundler, no npm install required to run it.
+JavaScript, with no framework, no bundler, and no npm install required to run it.
 
 ## Structure
 
@@ -17,7 +17,7 @@ first-geospatial/
 │       ├── js/main.js         ← mobile menu, scroll header, nav-spy, video dialog
 │       ├── fonts/             ← self-hosted Montserrat, Inter, Lora (woff2)
 │       └── img/                ← every image, cropped/derived from the two
-│                                 uploaded reference files — nothing generated
+│                                 uploaded reference files. Nothing generated
 ├── vercel.json
 ├── package.json
 ├── .vscode/
@@ -66,17 +66,17 @@ in the mockup (the brief's font list doesn't cover it explicitly).
 
 `--fw-display` in `styles.css` controls the heading weight. The brief's
 written spec says 700 (bold); the mockup artwork itself reads closer to a
-500–600 weight. It's currently set to `700` to follow the written spec —
-change that one variable to `500` if you'd rather match the artwork look.
+500-600 weight. It's currently set to `700` to follow the written spec.
+Change that one variable to `500` if you'd rather match the artwork look.
 
 ## Images
 
 Every photo and graphic comes from the two files you supplied
-(`Logo_FirstGeo.jpg`, `Website_FirstGeo.png`) — cropped, and in the case of
+(`Logo_FirstGeo.jpg`, `Website_FirstGeo.png`), cropped, and in the case of
 the hero landscape, retouched to remove the baked-in text/button layer so it
 could sit behind real HTML text. No new images were generated. Because the
 source mockup is only 870px wide, the derived photos are lower resolution
-than production assets would normally be — swap in your original,
+than production assets would normally be. Swap in your original,
 full-resolution photography under `assets/img/` when you have it (same
 filenames, so no HTML changes needed):
 
@@ -94,14 +94,14 @@ filenames, so no HTML changes needed):
 
 `public/contact.html` is a dedicated contact page (linked from every "Get in
 touch"/"Contact"/"Careers" link across the site, replacing the old `mailto:`
-button). It has a proper form — name, email, phone (optional), an enquiry-type
-dropdown, and a message field — plus the business email,
+button). It has a proper form (name, email, phone (optional), an enquiry-type
+dropdown, and a message field) plus the business email,
 **contact@firstgeospatial.com.au**, shown directly on the page and in both
 footers as a clickable `mailto:` link.
 
 **The form needs no server of your own.** It posts to
 [FormSubmit](https://formsubmit.co), a free relay that forwards submissions
-straight to your inbox — no signup, no API key, nothing to deploy. The form's
+straight to your inbox, with no signup, no API key, nothing to deploy. The form's
 `action` attribute already points to
 `https://formsubmit.co/contact@firstgeospatial.com.au`.
 
@@ -115,8 +115,8 @@ that, every submission goes straight through.
 On success, FormSubmit redirects back to `contact.html#sent`, which shows an
 inline "message sent" confirmation (see the small script at the bottom of
 `contact.html`). The redirect URL is currently hardcoded to
-`https://first-geo.vercel.app/contact.html#sent` in a hidden `_next` field —
-update that if you move to a custom domain.
+`https://first-geo.vercel.app/contact.html#sent` in a hidden `_next` field.
+Update that if you move to a custom domain.
 
 If you'd rather not depend on a third party, swap the `<form>`'s `action` for
 your own endpoint (e.g. a Vercel serverless function under `/api` that sends
@@ -125,10 +125,47 @@ The rest of the markup and styling won't need to change.
 
 ## Known placeholders (marked `TODO` in `index.html`)
 
-- Project card links (`Our Work`) point to `#work` — link to real project pages.
-- Social links (LinkedIn/Instagram/YouTube) point to `#` — add your profile URLs.
-- The "Get in touch" button in the CTA band uses `mailto:hello@example.com` — replace with your real address or a contact-form URL.
-- `assets/video/intro.mp4` doesn't exist yet — the "Watch video" button opens a dialog that shows "Video coming soon" until you add a file there (optionally `assets/video/intro.jpg` as a poster).
+- Project card links (`Our Work`) point to `#work`. Link to real project pages.
+- Social links (LinkedIn/Instagram/YouTube) point to `#`. Add your profile URLs.
+- The "Get in touch" button in the CTA band uses `mailto:hello@example.com`. Replace with your real address or a contact-form URL.
+- `assets/video/intro.mp4` doesn't exist yet, so the "Watch video" button opens a dialog that shows "Video coming soon" until you add a file there (optionally `assets/video/intro.jpg` as a poster).
+
+## SEO: service pages, sitemap, structured data
+
+Added in response to an SEO review of the live site. If you add, rename or
+remove a service page, keep these four places in sync:
+
+- **The five service pages**: `service-lidar-mapping.html`,
+  `service-drone-mapping.html`, `service-asset-inspections.html`,
+  `service-environmental-mapping.html`, `service-on-country.html`. Each has
+  its own `<title>`, meta description, `rel=canonical` and OG tags, and
+  reuses the shared `.contact-hero` / `.section` / `.cta` components plus a
+  small set of page-specific CSS in `styles.css`'s "13. SERVICE PAGES"
+  section (`.check-list`, `.faq`, `.related-services`).
+- The **homepage service cards** (`index.html`, `#services`): each card is
+  now a link to its service page.
+- The **footer "Our Services" list**, repeated on every page.
+- **`sitemap.html`**'s org-chart tree and **`sitemap.xml`**.
+
+**Canonical domain assumption:** every `rel=canonical`, the JSON-LD `url`,
+`robots.txt` and `sitemap.xml` currently point at
+`https://firstgeospatial.com.au/` (apex, no `www`), inferred from the
+business email domain. If the real production domain is different, or if
+`www` should be preferred instead, update those files plus the
+`www` to apex redirect in `vercel.json`, and make sure both the `www` and
+apex hostnames are actually added as domains on the Vercel project, since
+`vercel.json` redirects only fire for traffic that reaches the project on
+one of its configured domains.
+
+**Structured data** (`index.html`, in a `<script type="application/ld+json">`
+block) declares only facts already published elsewhere on the site: name,
+phone, service area, URL. Don't add a street address, review ratings or
+credentials to it unless they're genuinely verified; Google penalises
+structured data that doesn't match visible, accurate page content.
+
+**Still the user's own action, not something in this codebase:**
+Search Console verification, Google Business Profile, and directory
+listings (Supply Nation, NTIBN, ICN). None of these are website files.
 
 ## Accessibility & performance notes
 
@@ -137,7 +174,7 @@ The rest of the markup and styling won't need to change.
 - Icons are inline SVG symbols (drawn to match the mockup's line-icon style)
   reused via `<use>`, so there's a single icon sprite rather than repeated
   markup.
-- Social icons are the real Font Awesome 6 Free glyphs (CC BY 4.0) — see the
+- Social icons are the real Font Awesome 6 Free glyphs (CC BY 4.0). See the
   filled paths in `index.html`; licence details in `assets/fonts/`.
 - Hero image is `fetchpriority="high"` and preloaded; below-the-fold images
   use `loading="lazy"`.

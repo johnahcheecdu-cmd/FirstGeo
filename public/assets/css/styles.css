@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FIRST GEOSPATIAL — styles.css
+   FIRST GEOSPATIAL: styles.css
    One stylesheet, no build step. Sections follow the page top to bottom.
 
    1. Tokens (colours, fonts)      6. Purpose
@@ -11,7 +11,7 @@
 
 /* ---------- 1. TOKENS ---------------------------------------------------- */
 :root {
-  /* Brand palette — do not add colours; use these. */
+  /* Brand palette. Do not add colours; use these. */
   --charcoal: #10151B;   /* Primary background */
   --ocean:    #082B45;   /* Secondary backgrounds */
   --ochre:    #DDA66A;   /* Buttons, headings, highlights */
@@ -28,7 +28,7 @@
   --font-quote: "Lora", Georgia, "Times New Roman", serif; /* pull-quote only (in the mockup) */
 
   /* Spec: main headings Montserrat Bold 700. The mockup artwork looks closer
-     to 500 — change this ONE value to 500 to match the artwork's lighter look. */
+     to 500. Change this ONE value to 500 to match the artwork's lighter look. */
   --fw-display: 700;
 
   /* Layout */
@@ -159,7 +159,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .rule { display: block; width: clamp(2.2rem, 3vw, 3rem); height: 2px; background: var(--ochre); }
 
-/* Buttons — sharp corners, as in the mockup */
+/* Buttons: sharp corners, as in the mockup */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 1em;
   padding: 1.15em 1.9em;
@@ -304,7 +304,10 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .services__intro .h2 { margin-bottom: clamp(.9rem, 1.5vw, 1.5rem); }
 .services__intro .body { margin-bottom: clamp(1.2rem, 1.7vw, 1.7rem); }
 .services__intro .btn { padding: 1.3em 2.1em; }
-.service { text-align: center; padding-inline: .4vw; margin-top: 1.6vw; }
+.service { display: block; text-align: center; padding-inline: .4vw; margin-top: 1.6vw; transition: transform .2s; }
+.service:hover { transform: translateY(-3px); }
+.service:hover .h3 { color: var(--ochre); }
+.service:hover .service__ring { border-color: var(--ochre); background: rgba(221, 166, 106, .08); }
 .service__ring {
   display: grid; place-items: center; margin: 0 auto clamp(.9rem, 1.6vw, 1.6rem);
   width: clamp(92px, 9.6vw, 156px); aspect-ratio: 1; border-radius: 50%;
@@ -423,6 +426,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   content: ""; position: absolute; top: 0; left: var(--pad); right: var(--pad); height: 1px; background: rgba(137, 152, 165, .7);
 }
 .site-footer__legal { padding-top: clamp(1rem, 1.5vw, 1.6rem); }
+.site-footer__legal a { transition: color .2s; }
+.site-footer__legal a:hover { color: var(--ochre); }
 .pipes { display: inline-flex; align-items: center; }
 .pipes i { display: inline-block; width: 1px; height: .95em; background: var(--ochre); margin-inline: 1em .8em; }
 
@@ -441,6 +446,20 @@ button { font: inherit; color: inherit; cursor: pointer; }
   position: absolute; top: 6px; right: 8px; z-index: 2; width: 40px; height: 40px;
   border: 0; background: rgba(16, 21, 27, .7); color: var(--white); font-size: 1.8rem; line-height: 1;
 }
+
+/* Credential badge (e.g. Supply Nation Registered Supplier) */
+.credential {
+  display: inline-flex; align-items: center; gap: .6em;
+  margin-top: clamp(.9rem, 1.3vw, 1.3rem);
+  padding: .55em 1.1em;
+  border: 1px solid var(--line-ochre);
+}
+.credential .icon { width: 1.15em; height: 1.15em; color: var(--ochre); flex: none; }
+.credential__label {
+  font-family: var(--font-head); font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  font-size: clamp(.6rem, .7vw, .68rem); color: var(--ochre); line-height: 1.3;
+}
+.credential__logo { height: clamp(36px, 3.4vw, 48px); width: auto; }
 
 /* Footer contact line (email under the tagline) */
 .site-footer__email {
@@ -549,6 +568,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .community__head .eyebrow { margin-bottom: clamp(1rem, 1.6vw, 1.6rem); }
 .community__head .h2 { margin-bottom: clamp(.9rem, 1.4vw, 1.4rem); }
 .community__lede { max-width: 62ch; font-size: clamp(.86rem, 1.02vw, 1rem); }
+.community__head .btn { margin-top: clamp(1.2rem, 1.8vw, 1.8rem); padding: 1.1em 1.9em; }
 
 .community__product {
   max-width: 74ch; padding: clamp(1.7rem, 2.6vw, 2.8rem);
@@ -566,6 +586,107 @@ button { font: inherit; color: inherit; cursor: pointer; }
   text-transform: none; letter-spacing: 0; line-height: 1.25;
 }
 .community__product .body { max-width: none; }
+
+/* ---------- 12. SITEMAP PAGE (org-chart diagram) --------------------------
+   Classic CSS tree-diagram technique: each <ul> is a row of siblings, each
+   <li> draws its own connector lines via ::before/::after, so the whole tree
+   needs no JS and no fixed coordinates. Desktop renders a true horizontal
+   org-chart; below 1024px it falls back to an indented vertical tree, since
+   a horizontal chart has nowhere to go on a phone-width screen. */
+.sitemap { padding-block: clamp(2.6rem, 4.6vw, 5.2rem); overflow-x: auto; }
+
+.orgchart, .orgchart ul, .orgchart li { list-style: none; margin: 0; padding: 0; }
+.orgchart { text-align: center; }
+.orgchart ul { display: flex; justify-content: center; }
+.orgchart li {
+  position: relative; flex: 1;
+  padding: 1.8rem .9rem 0; display: flex; flex-direction: column; align-items: center;
+}
+/* vertical connector dropping from the row's shared bar down to this node */
+.orgchart li::before {
+  content: ""; position: absolute; top: 0; left: 50%;
+  width: 0; height: 1.8rem; border-left: 1.5px solid var(--slate);
+}
+/* horizontal connector joining siblings along the top of their row. Each li
+   draws half the bar on either side of its own centre, so adjacent bars meet */
+.orgchart li::after {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: var(--slate);
+}
+.orgchart li:first-child::after { left: 50%; }
+.orgchart li:last-child::after  { right: 50%; }
+.orgchart li:only-child::after  { display: none; }
+/* the root hub has no incoming connector, nothing sits above it */
+.orgchart > ul > li { padding-top: 0; }
+.orgchart > ul > li::before, .orgchart > ul > li::after { display: none; }
+
+.node {
+  display: inline-flex; flex-direction: column; align-items: center; gap: .3em;
+  padding: .9em 1.3em; background: var(--charcoal); border: 1px solid var(--line-ochre);
+  font-family: var(--font-head); white-space: nowrap; transition: border-color .2s, background-color .2s;
+}
+.node:hover { border-color: var(--ochre); background: rgba(221, 166, 106, .08); }
+
+.node--hub {
+  flex-direction: row; gap: .7em; padding: .7em 1.6em .7em .9em;
+  border: 1px solid var(--ochre); background: rgba(221, 166, 106, .08);
+}
+.node--hub .node__mark { width: 2.4em; height: auto; filter: brightness(1.15); }
+.node--hub span {
+  font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+  font-size: clamp(.85rem, 1.1vw, 1.05rem); color: var(--white);
+}
+
+.node--branch { border-color: var(--ochre); min-width: 10rem; }
+.node--branch[aria-current="true"] { background: rgba(221, 166, 106, .14); }
+.node__title {
+  font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+  font-size: clamp(.68rem, .82vw, .78rem); color: var(--ochre);
+}
+.node__path { font-family: var(--font-body); font-size: .72rem; color: var(--slate); }
+
+.node--leaf {
+  border-color: rgba(21, 157, 199, .5);
+  font-family: var(--font-body); font-weight: 400; text-transform: none; letter-spacing: 0;
+  font-size: .82rem; color: rgba(255, 255, 255, .92); padding: .6em 1em;
+}
+.node--leaf:hover { border-color: var(--cyan); background: rgba(21, 157, 199, .08); }
+
+/* leaf rows shouldn't stretch to fill the branch's width like a 3-column row would */
+.orgchart ul ul li { flex: none; }
+
+.site-footer__legal a[aria-current="true"] { color: var(--ochre); text-decoration: underline; text-underline-offset: .25em; }
+
+/* ---------- 13. SERVICE PAGES ---------------------------------------------
+   Shared components for the five dedicated service pages (service-*.html).
+   Each page reuses .contact-hero for its banner and .cta for its closing
+   band; these rules cover the content in between. */
+.service-section { padding-block: clamp(2.2rem, 3.4vw, 4.2rem); }
+.service-section + .service-section { padding-top: 0; }
+.service-section__head .eyebrow { margin-bottom: clamp(1rem, 1.6vw, 1.6rem); }
+.service-section__head .h2 { margin-bottom: clamp(.9rem, 1.4vw, 1.4rem); }
+.service-section__head .body { max-width: 62ch; margin-bottom: 0; }
+.service-section__head .body + .body { margin-top: 1em; }
+
+/* Deliverables / workflow steps: icon + copy, stacked */
+.check-list { display: flex; flex-direction: column; gap: clamp(1rem, 1.6vw, 1.5rem); margin-top: clamp(1.3rem, 2vw, 2rem); }
+.check-list li { display: flex; align-items: flex-start; gap: .8em; max-width: 62ch; }
+.check-list .icon { width: 1.2em; height: 1.2em; margin-top: .2em; color: var(--ochre); stroke-width: 1.8; flex: none; }
+.check-list__copy { font-size: clamp(.92rem, 1.12vw, 1.1rem); line-height: 1.55; color: var(--ink-soft); }
+.check-list__copy strong {
+  display: block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase;
+  letter-spacing: .03em; font-size: .86em; color: var(--ink); margin-bottom: .2em;
+}
+.check-list--light .check-list__copy { color: rgba(255, 255, 255, .92); }
+.check-list--light .check-list__copy strong { color: var(--white); }
+
+/* FAQ pairs */
+.faq { display: flex; flex-direction: column; gap: clamp(1.5rem, 2.2vw, 2.2rem); margin-top: clamp(1.3rem, 2vw, 2rem); }
+.faq__item .h3 { margin-bottom: .6em; text-transform: none; font-family: var(--font-body); font-weight: 700; letter-spacing: 0; font-size: clamp(1rem, 1.2vw, 1.15rem); }
+.faq__item .body { max-width: 62ch; }
+
+/* Related-services chip row */
+.related-services { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: clamp(1.4rem, 2vw, 2rem); }
+.related-services .btn { padding: 1em 1.6em; font-size: .78rem; }
 
 /* ---------- RESPONSIVE --------------------------------------------------- */
 
@@ -638,6 +759,26 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
   .work { padding-block: 2.6rem; }
   .community { padding-block: 2.6rem; }
+
+  /* Sitemap: the horizontal org-chart has nowhere to go this narrow, so it
+     collapses to a left-bordered, indented outline instead. */
+  .sitemap { padding-block: 2.6rem; overflow-x: visible; }
+  .orgchart li { flex: none; padding: 0; }
+  .orgchart li::before, .orgchart li::after { content: none; }
+  .orgchart > ul { align-items: center; }
+  .orgchart > ul > li { align-items: center; }
+  .orgchart > ul > li > ul {
+    flex-direction: column; align-items: flex-start; width: 100%;
+    margin-top: 1.4rem; padding-left: 1rem; border-left: 1.5px solid var(--slate);
+  }
+  .orgchart > ul > li > ul > li { width: 100%; align-items: flex-start; margin-bottom: 1.2rem; }
+  .orgchart > ul > li > ul > li > ul {
+    flex-direction: column; align-items: flex-start; width: 100%;
+    margin-top: .8rem; padding-left: 1rem; border-left: 1.5px solid rgba(21, 157, 199, .5);
+  }
+  .orgchart > ul > li > ul > li > ul > li { width: 100%; align-items: flex-start; margin-bottom: .6rem; }
+  .node { width: 100%; align-items: flex-start; text-align: left; white-space: normal; }
+  .node--hub { width: auto; flex-direction: row; align-items: center; }
   .community__head { max-width: none; }
   .community__lede { max-width: none; }
   .work__head { grid-template-columns: 1fr; gap: 1.2rem; }

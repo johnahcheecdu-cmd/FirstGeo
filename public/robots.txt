@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# The HTML sitemap (sitemap.html) is for visitors and is marked noindex.
+# This XML sitemap is the one for search engines.
+Sitemap: https://firstgeospatial.com.au/sitemap.xml

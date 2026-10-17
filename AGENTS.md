@@ -1,4 +1,4 @@
-# Agent instructions — First Geospatial site
+# Agent instructions: First Geospatial site
 
 This file is for AI coding assistants (Claude in VS Code, local Ollama
 models, etc.) working on this repository. Read it before making changes.
@@ -7,10 +7,10 @@ models, etc.) working on this repository. Read it before making changes.
 
 A static marketing website (`public/index.html`, `assets/css/styles.css`,
 `assets/js/main.js`) built to match a client-supplied design mockup exactly.
-There is no build step, no framework, and no bundler — keep it that way
+There is no build step, no framework, and no bundler. Keep it that way
 unless the person explicitly asks for one.
 
-## Hard constraints — do not violate these without being asked
+## Hard constraints: do not violate these without being asked
 
 1. **Colour palette is fixed.** Only use the eight hex values defined as
    CSS custom properties at the top of `styles.css` (`--charcoal`,
@@ -18,7 +18,7 @@ unless the person explicitly asks for one.
    `--white`). Do not introduce new colours, tints, or gradients that use
    colours outside this set, even for hover/focus states.
 2. **Typefaces are fixed.** Montserrat for headings/nav/buttons/taglines,
-   Inter for body text, both self-hosted under `assets/fonts/` — don't add
+   Inter for body text, both self-hosted under `assets/fonts/`. Don't add
    a Google Fonts `<link>` or swap in a different family. The one exception
    already in the codebase is Lora italic, used only for the pull-quote.
 3. **Don't regenerate or replace the images** in `assets/img/` with AI-
@@ -27,25 +27,38 @@ unless the person explicitly asks for one.
    brand artwork. If you need a new image (e.g. a new project card), ask
    the person for the source photo rather than inventing one.
 4. **Layout is modelled on a real mockup**, `Website_FirstGeo.png` (not
-   included in this deployable folder — it lives with the original chat
+   included in this deployable folder, it lives with the original chat
    upload). Section order, proportions and copy were measured against it.
    If you're asked to adjust spacing/sizing, keep changes proportional
    (the CSS uses `clamp()` and `vw` units deliberately so the layout scales
    correctly between mobile and large desktop) rather than switching to
    fixed pixel values.
 5. **No build tooling.** Don't add webpack/vite/npm build scripts that
-   compile `styles.css` or `main.js` — they're meant to be readable and
+   compile `styles.css` or `main.js`. They're meant to be readable and
    editable directly. `package.json`'s only job is a local dev server.
 
-## Contact form — don't break the FormSubmit wiring
+## Contact form: don't break the FormSubmit wiring
 
 `public/contact.html` posts to `https://formsubmit.co/contact@firstgeospatial.com.au`
 (no backend of our own). If you change the form, keep the hidden `_subject`,
 `_template`, `_next` and `_honey` (honeypot) fields intact, and keep `_next`
-pointing at an absolute URL ending in `/contact.html#sent` — that's what
+pointing at an absolute URL ending in `/contact.html#sent`. That's what
 triggers the inline "message sent" confirmation via the small script at the
 bottom of the page. See `README.md`'s "Contact page & form" section for the
 one-time activation step this depends on.
+
+## Service pages (SEO)
+
+There are five dedicated service pages (`service-*.html`) alongside
+`index.html`/`contact.html`/`sitemap.html`. See README.md's "SEO: service
+pages, sitemap, structured data" section before adding, renaming or removing
+one. They were generated from a shared template (not kept in this repo) to
+guarantee the header/footer/head markup stays identical across all five; if
+you hand-edit one page's structure, check whether the others need the same
+edit, rather than letting them drift apart. `firstgeospatial.com.au` (apex,
+no `www`) is assumed as the production domain in every canonical tag,
+`sitemap.xml` and the JSON-LD. Confirm this is correct and update it
+everywhere at once if not.
 
 ## Where things live
 
@@ -64,13 +77,13 @@ one-time activation step this depends on.
 - Check the page still has no console errors and no failed network
   requests (broken image/font paths are the most common regression).
 - Re-check both a desktop width (~1440px) and a narrow mobile width
-  (~390px) — the mobile styles live in the `@media (max-width: 1023px)`
+  (~390px). The mobile styles live in the `@media (max-width: 1023px)`
   block near the bottom of `styles.css`, and it's easy to fix desktop while
   quietly breaking mobile (or vice versa).
-- Respect `prefers-reduced-motion` — any new animation needs a reduced-
+- Respect `prefers-reduced-motion`. Any new animation needs a reduced-
   motion fallback, following the existing pattern at the bottom of the
   hero section's CSS and in the global `@media (prefers-reduced-motion:
   reduce)` block.
 - Leave `TODO` comments (see `README.md`'s "Known placeholders" section)
-  alone unless you're the one filling them in with real data — don't
+  alone unless you're the one filling them in with real data. Don't
   silently invent a contact email, social URL or project link.
