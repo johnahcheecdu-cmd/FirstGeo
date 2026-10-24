@@ -10,6 +10,8 @@ JavaScript, with no framework, no bundler, and no npm install required to run it
 first-geospatial/
 ├── public/                    ← deploy this folder as-is
 │   ├── index.html
+│   ├── about.html              ← About Us page (company story, services, Virtual Country)
+│   ├── team.html                ← "The People Behind First Geospatial" staff profiles
 │   ├── contact.html           ← contact page with a working form (see below)
 │   ├── favicon.png
 │   └── assets/
