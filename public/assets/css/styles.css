@@ -474,6 +474,32 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .credential--logo { display: block; border: 0; padding: 0; }
 .credential--logo .credential__logo { width: clamp(96px, 8vw, 124px); height: auto; }
 
+/* Supply Nation verification block (About page).
+   The footer badge is a mark; this one is evidence, so it carries the sentence
+   that says what being Registered actually means. Flex rather than a float so
+   the sentence never wraps under the badge at an awkward width, and the badge
+   keeps an explicit width with flex:none so it is never squashed out of
+   proportion. Stacks below 34em, where side by side leaves the text too narrow
+   to read. */
+.verify {
+  display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 1.75rem);
+  /* Same 62ch measure as the paragraphs above, so the box lines up with the
+     text column instead of running the full width of the stage. */
+  max-width: 62ch;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--line-ochre);
+}
+.verify__logo { width: clamp(84px, 9vw, 110px); height: auto; flex: none; }
+.verify__text {
+  margin: 0; color: var(--ink-soft);
+  font-size: clamp(.85rem, 1vw, .98rem); line-height: 1.55;
+}
+.verify__text strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 34em) {
+  .verify { flex-direction: column; align-items: flex-start; }
+}
+
 /* Footer contact line (email under the tagline) */
 .site-footer__email {
   display: inline-flex; align-items: center; gap: .5em;
