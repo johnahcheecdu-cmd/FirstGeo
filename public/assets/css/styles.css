@@ -451,7 +451,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   border: 0; background: rgba(16, 21, 27, .7); color: var(--white); font-size: 1.8rem; line-height: 1;
 }
 
-/* Credential badge (e.g. Supply Nation Registered Supplier) */
+/* Credential badge (Supply Nation Registered) */
 .credential {
   display: inline-flex; align-items: center; gap: .6em;
   margin-top: clamp(.9rem, 1.3vw, 1.3rem);
@@ -464,6 +464,15 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-size: clamp(.6rem, .7vw, .68rem); color: var(--ochre); line-height: 1.3;
 }
 .credential__logo { height: clamp(36px, 3.4vw, 48px); width: auto; }
+
+/* Supply Nation Registered badge.
+   The supplied mark is portrait (440x553), not the landscape lockup the rule
+   above assumed, so it sizes on width — pinned to height it would come out
+   ~38px wide and the word REGISTERED would stop being legible. The mark also
+   carries its own white keyline, so the ochre box that frames the text badge
+   is dropped here rather than doubled up. */
+.credential--logo { display: block; border: 0; padding: 0; }
+.credential--logo .credential__logo { width: clamp(96px, 8vw, 124px); height: auto; }
 
 /* Footer contact line (email under the tagline) */
 .site-footer__email {
